@@ -1,0 +1,14 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+<form action="/post/form" method="post">
+    <div class="d-flex flex-column mb-5">
+        {{board.title}}
+        {{boardForm}}
+    </div>
+    <button class="btn btn-info" role="submit">Add</button>
+    <button class="btn btn-warning" role="button" onclick="{% url 'post_list' %}">취소</button>
+</form>
+
+{% endblock %}

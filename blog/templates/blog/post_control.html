@@ -1,0 +1,21 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+    <form action="{% url 'post_control' num=post.num %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="_method" value="delete">
+        <input class="btn btn-danger" type="submit" value="&times;">
+    </form>
+    <div class="post">
+        {% if post.regdate %}
+            <div class="date">
+                {{ post.regdate }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content|linebreaksbr }}</p>
+        <p>writed by: {{ post.author }}</p>
+    </div>
+    <a href="/">목록</a>
+    <a href="{% url 'post_edit' %}?num={{post.num}}">수정</a>
+{% endblock %}
