@@ -1,0 +1,10 @@
+@import './mixin.scss';
+
+$h-unit: 1;
+
+@while $h-unit<=6 {
+    h#{$h-unit}{
+        @include font-gugi;
+    }
+    $h-unit: $h-unit + 1;
+}

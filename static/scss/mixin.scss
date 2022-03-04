@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+@mixin font-gugi {
+    font-family: $font-gugi;
+}
+@mixin font-sans {
+    font-family: $font-sans;
+}
+@mixin font-serif {
+    font-family: $font-serif;
+}

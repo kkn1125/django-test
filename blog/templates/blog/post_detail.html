@@ -1,0 +1,32 @@
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+<div class="fence-full">
+    <div>
+        <h1 class="h1 text-capitalize">{{board.title}}</h1>
+    </div>
+    <div>
+        <span class="tag tag-info text-capitalize">created</span>
+        <span class="tag text-gray">{{board.regdate | date:"Y-m-d"}}</span>
+        <br>
+        <span class="tag tag-info text-capitalize">updated</span>
+        <span class="tag text-gray">{{board.updates | date:"Y-m-d"}}</span>
+        <br>
+        <span class="tag tag-info text-capitalize">author</span>
+        <span>{{board.author}}</span>
+    </div>
+    <hr>
+
+    <div class="p-3">
+        <p>
+            {{board.content}}
+        </p>
+    </div>
+
+    <hr>
+
+    <div>
+        <a class="btn btn-danger" href="{% url 'post_list' %}">목록</a>
+    </div>
+</div>
+{% endblock %}

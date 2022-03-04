@@ -1,0 +1,21 @@
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+<div class="fence-full">
+    <div class="card-group">
+        {% for post in board %}
+            <div class="card card-pd-3 gx-5 px-3 bg-light">
+                <h1 class="fw-bold text-capitalize"><a href="{% url 'post_control' num=post.num %}">{{ post.title }}</a></h1>
+                <p class="">{{ post.content|linebreaksbr }}</p>
+                <div class="date fs-7">
+                    {{ post.regdate | date:"Y. m. d. A h시 i분" }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="btn btn-info" onclick="location='/form'">
+        Write
+        <i class="fa-solid fa-pencil"></i>
+    </button>
+</div>
+{% endblock %}

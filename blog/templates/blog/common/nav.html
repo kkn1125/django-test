@@ -1,0 +1,23 @@
+<nav class="gnb position-sticky bg-light us-none gnb-dark">
+    <div class="gnb-inner gnb-expand-md hide align-items-center">
+        <div class="brand fw-bold">
+            <a href="{% url 'post_list' %}">Home</a>
+        </div>
+        <div class="menu-btn">
+            <button class="btn btn-light text-gray fs-4" data-target="#gnbMenu" style="line-height: 1">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul id="gnbMenu" class="gnb-menu vgap-3 w-flex hide">
+            <li>
+                <a class="nav-link" href="index.html">Docs</a>
+            </li>
+            <li class="search btn-bundle g-0">
+                <input type="text" class="form-input col">
+                <button class="btn btn-info">
+                    <i class="fas fa-search"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
