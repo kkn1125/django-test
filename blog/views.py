@@ -2,13 +2,20 @@ from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from .forms import BoardForm
 from .models import Board
+from django.core.paginator import Paginator
 
 # Create your views here.
 @api_view(['GET'])
 def post_list(request):
-    board = Board.objects.all()
+    page = request.GET.get('page', '1')
+    
+    board = Board.objects.order_by('regdate')
+    
+    paginator = Paginator(board, 3)
+    page_obj = paginator.get_page(page)
+    
     context = {
-        'board': board
+        'board': page_obj
     }
     
     return render(request, 'blog/post_list.html', context)

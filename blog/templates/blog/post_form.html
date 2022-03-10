@@ -3,6 +3,7 @@
 {% block content %}
 <div class="fence-full">
     <form action="{% url 'post_form' %}" method="post">
+        {% csrf_token %}
         {{boardForm}}
         <button class="btn btn-info" type="submit">Write</button>
     </form>

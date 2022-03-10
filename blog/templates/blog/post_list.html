@@ -13,9 +13,39 @@
             </div>
         {% endfor %}
     </div>
+    <ul class="w-flex justify-content-center">
+        {% if board.has_previous %}
+            <li class="">
+                <a class="btn btn-frame btn-light" href="?page={{board.previous_page_number}}">Prev</a>
+            </li>
+        {% endif %}
+        {% for page_number in board.paginator.page_range %}
+            {% if page_number == board.number %}
+            <li class="">
+                <a class="btn btn-frame btn-light" class="text-danger" href="?page={{page_number}}">{{page_number}}</a>
+            </li>
+            {% else %}
+            <li class="">
+                <a class="btn btn-frame btn-light" class="" href="?page={{page_number}}">{{page_number}}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        {% if board.has_next %}
+            <li class="">
+                <a class="btn btn-frame btn-light" href="?page={{board.next_page_number}}">Next</a>
+            </li>
+        {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
     <button class="btn btn-info" onclick="location='/form'">
         Write
         <i class="fa-solid fa-pencil"></i>
     </button>
+    {% else %}
+    <button class="btn btn-info" disabled>
+        Write
+        <i class="fa-solid fa-pencil"></i>
+    </button>
+    {% endif %}
 </div>
 {% endblock %}
